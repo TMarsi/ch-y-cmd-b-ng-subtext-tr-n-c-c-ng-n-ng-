@@ -1,0 +1,108 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <math.h>
+#include <windows.h>
+
+void menu(){
+    printf("\n===calculator premium's Hiếu===\n");
+    printf("1.Cộng(+) \n");
+    printf("2.Trừ(-) \n");
+    printf("3.Nhân(*) \n");
+    printf("4.Chia(/)\n");
+    printf("5.Luỹ thừa(pow)\n");
+    printf("6.Căn bậc 2 (sqrt)\n");
+    printf("7.Phép dư(mod)\n");
+    printf("8.EXIT\n");
+    printf("Chọn nhanh lên không oánh cho h(1 -8)");
+}
+int main()
+{
+    SetConsoleOutputCP(CP_UTF8);
+    SetConsoleCP(CP_UTF8); // thiết  lập để hiện thị tiếng việt
+    int chon;
+    double so1,so2,ketqua;
+    long nguyen1,nguyen2;
+    
+    do{
+        menu();
+        if(scanf("%d", &chon) != 1){
+            printf("Mù chữ à .Pick lại sau đê.\n");
+            break;
+        }
+        switch(chon) {
+            case 1:
+            printf("Nhập 2 số thực: ");
+            scanf("%lf %lf",&so1,&so2);
+            ketqua = so1 + so2;
+            printf("Kết quả : %.2lf + %.2lf = %.2lf\n", so1, so2,ketqua);
+            break;
+
+            case 2:
+            printf("Nhập 2 số thực: ");
+            scanf("%lf %lf",&so1,&so2);
+            ketqua = so1 - so2;
+            printf("Kết quả : %.2lf + %.2lf = %.2lf\n", so1, so2,ketqua);
+            break;
+            
+
+            case 3:
+            printf("Nhập 2 số thực: ");
+            scanf("%lf %lf",&so1,&so2);
+            ketqua = so1 * so2;
+            printf("Kết quả : %.2lf * %.2lf = %.2lf\n", so1, so2,ketqua);
+            break;
+
+
+            case 4:
+            printf("Nhập 2 số thực: ");
+            scanf("%lf %lf",&so1,&so2);
+            if(so2 != 0) ketqua = so1 / so2;
+            else {
+                printf("m bị não cá vàng à\n");
+                break;
+            }
+            printf("Kết quả : %.2lf / %.2lf = %.2lf\n", so1, so2,ketqua);
+            break;
+
+
+            case 5:
+            printf("Nhập cơ số và số mũ: ");
+            scanf("%lf %lf",&so1,&so2);
+            ketqua = pow(so1,so2);
+            printf("Kết quả : %.2lf^%.2lf = %.2lf\n", so1, so2,ketqua);
+            break;
+
+
+            case 6:
+            printf("Nhập 1 số: ");
+            scanf("%lf",&so1);
+            if(so1 >= 0) ketqua = sqrt(so1);
+            else {
+                printf("moẹ thằng chó chết này\n");
+                break;
+            }
+            printf("Kết quả : %.2lf = căn %.2lf\n",ketqua,so1);
+            break;
+
+            case 7:
+            printf("Nhập 2 số nguyen: ");
+            scanf("%lf %lf",&nguyen1,&nguyen2);
+            if(so2 != 0) ketqua = nguyen1 % nguyen2;
+            else {
+                printf("mày bị tật não à\n");
+                break;
+            }
+            printf("Kết quả : %.2lf mod %.2lf = %.2lf\n", nguyen1, nguyen2,ketqua);
+            break;
+
+            case 8:
+            printf("biệt tạm cả nhà !!!\n");
+            break;
+
+            default:
+                printf("Chọn lại hộ tao cái thằng ngu này(1 - 8)\n");
+        }
+
+    } while(chon != 8);
+    return 0;
+}
